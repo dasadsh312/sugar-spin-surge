@@ -108,8 +108,24 @@ export class SeededRNG {
   }
 
   /**
-   * Get current seed state for reproduction
+   * Set new seed and reinitialize RNG
    */
+  setSeed(seed: string | number): void {
+    const seedStr = seed.toString();
+    let h1 = 1779033703, h2 = 3144134277, h3 = 1013904242, h4 = 2773480762;
+    
+    for (let i = 0; i < seedStr.length; i++) {
+      h1 = this.mulberry32Hash(h1 ^ seedStr.charCodeAt(i));
+      h2 = this.mulberry32Hash(h2 ^ seedStr.charCodeAt(i));
+      h3 = this.mulberry32Hash(h3 ^ seedStr.charCodeAt(i));
+      h4 = this.mulberry32Hash(h4 ^ seedStr.charCodeAt(i));
+    }
+    
+    this.a = h1 >>> 0;
+    this.b = h2 >>> 0;
+    this.c = h3 >>> 0;
+    this.d = h4 >>> 0;
+  }
   getState(): [number, number, number, number] {
     return [this.a, this.b, this.c, this.d];
   }

@@ -2,148 +2,153 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Candy Tempest Game Design System */
+/* Professional Casino Design System */
 
 @layer base {
   :root {
-    /* Game Canvas */
-    --game-background: 270 15% 8%;
-    --game-overlay: 270 20% 12%;
+    /* Premium Dark Casino Background */
+    --game-background: 220 15% 6%;
+    --game-overlay: 220 20% 10%;
+    --card: 220 20% 12%;
+    --foreground: 0 0% 98%;
     
-    /* Candy Colors */
-    --candy-red: 345 85% 55%;
-    --candy-orange: 25 90% 60%;
-    --candy-yellow: 50 95% 65%;
-    --candy-green: 150 70% 50%;
-    --candy-blue: 210 80% 60%;
-    --candy-purple: 280 75% 65%;
-    --candy-pink: 320 80% 70%;
+    /* Luxury Gold Accents */
+    --gold-primary: 43 96% 56%;
+    --gold-secondary: 45 100% 70%;
+    --gold-dark: 38 92% 50%;
+    
+    /* Premium Candy Palette */
+    --candy-red: 0 86% 59%;
+    --candy-orange: 24 95% 53%;
+    --candy-yellow: 48 100% 67%;
+    --candy-green: 142 76% 36%;
+    --candy-blue: 217 91% 60%;
+    --candy-purple: 271 81% 56%;
+    --candy-pink: 329 86% 65%;
     
     /* Special Symbols */
-    --scatter: 45 100% 70%;
-    --multiplier: 290 100% 75%;
+    --scatter: 43 96% 56%;
+    --multiplier: 271 81% 70%;
     --wild: 0 0% 100%;
     
-    /* UI Colors */
-    --background: 270 15% 8%;
-    --foreground: 0 0% 98%;
-    --card: 270 20% 12%;
-    --card-foreground: 0 0% 95%;
+    /* Win Celebration Colors */
+    --win-small: 120 100% 50%;
+    --win-medium: 60 100% 50%;
+    --win-big: 30 100% 50%;
+    --win-mega: 0 100% 50%;
     
-    /* Game Elements */
-    --primary: 280 75% 65%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 270 25% 20%;
+    /* UI Elements */
+    --primary: 43 96% 56%;
+    --primary-foreground: 220 15% 6%;
+    --secondary: 220 25% 18%;
     --secondary-foreground: 0 0% 90%;
-    
-    /* Accents & Effects */
-    --accent: 320 80% 70%;
+    --accent: 271 81% 56%;
     --accent-foreground: 0 0% 100%;
-    --muted: 270 15% 15%;
+    --muted: 220 15% 15%;
     --muted-foreground: 0 0% 70%;
+    --border: 220 25% 25%;
+    --input: 220 25% 20%;
+    --ring: 43 96% 56%;
     
-    /* Win Effects */
-    --win-glow: 45 100% 70%;
-    --big-win: 25 100% 60%;
-    --mega-win: 320 100% 70%;
+    /* Professional Shadows */
+    --shadow-soft: 0 2px 10px rgba(0, 0, 0, 0.1);
+    --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+    --shadow-strong: 0 8px 30px rgba(0, 0, 0, 0.3);
+    --shadow-glow: 0 0 30px rgba(255, 215, 0, 0.3);
+    --shadow-win: 0 0 40px rgba(255, 215, 0, 0.6);
     
-    /* Gradients */
-    --gradient-candy: linear-gradient(135deg, hsl(320 80% 70%), hsl(280 75% 65%), hsl(210 80% 60%));
-    --gradient-gold: linear-gradient(135deg, hsl(45 100% 70%), hsl(35 90% 65%));
-    --gradient-game: linear-gradient(180deg, hsl(270 15% 8%), hsl(270 20% 12%));
-    --gradient-button: linear-gradient(135deg, hsl(280 75% 65%), hsl(320 80% 70%));
-    
-    /* Borders & Effects */
-    --border: 270 25% 25%;
-    --input: 270 25% 20%;
-    --ring: 280 75% 65%;
-    
-    /* Shadows */
-    --shadow-candy: 0 4px 20px hsl(280 75% 65% / 0.3);
-    --shadow-win: 0 0 30px hsl(45 100% 70% / 0.6);
-    --shadow-button: 0 4px 15px hsl(280 75% 65% / 0.4);
+    /* Professional Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 96% 56%), hsl(45 100% 70%), hsl(38 92% 50%));
+    --gradient-dark: linear-gradient(135deg, hsl(220 15% 6%), hsl(220 20% 10%));
+    --gradient-card: linear-gradient(135deg, hsl(220 20% 12%), hsl(220 25% 15%));
+    --gradient-button: linear-gradient(135deg, hsl(43 96% 56%), hsl(45 100% 70%));
+    --gradient-win: linear-gradient(135deg, hsl(120 100% 50%), hsl(60 100% 50%));
     
     --radius: 0.75rem;
+    --radius-large: 1rem;
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --game-background: 270 15% 8%;
-    --game-overlay: 270 20% 12%;
-    --candy-red: 345 85% 55%;
-    --candy-orange: 25 90% 60%;
-    --candy-yellow: 50 95% 65%;
-    --candy-green: 150 70% 50%;
-    --candy-blue: 210 80% 60%;
-    --candy-purple: 280 75% 65%;
-    --candy-pink: 320 80% 70%;
-    --scatter: 45 100% 70%;
-    --multiplier: 290 100% 75%;
-    --wild: 0 0% 100%;
-    --win-glow: 45 100% 70%;
-    --big-win: 25 100% 60%;
-    --mega-win: 320 100% 70%;
   }
 }
 
 @layer components {
-  .candy-symbol {
-    @apply rounded-full shadow-candy transition-transform duration-300 hover:scale-110;
+  /* Professional Game UI Components */
+  .game-board {
+    @apply bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur-md;
+    @apply border-2 border-gold-primary/30 rounded-xl shadow-strong;
+    @apply relative overflow-hidden;
   }
   
-  .win-celebration {
-    @apply animate-win-pulse shadow-win;
+  .game-board::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-gold-primary/5 to-transparent;
+    @apply pointer-events-none;
   }
   
-  .game-ui-panel {
-    @apply bg-card/90 backdrop-blur-sm border-primary/20 rounded-lg shadow-button;
+  .symbol-slot {
+    @apply relative w-20 h-20 rounded-xl flex items-center justify-center;
+    @apply bg-gradient-to-br from-slate-700/50 to-slate-800/80;
+    @apply border border-slate-600/50 backdrop-blur-sm;
+    @apply transition-all duration-300 hover:scale-105 hover:shadow-glow;
+    @apply cursor-pointer overflow-hidden;
   }
-}
-
-@layer base {
-  * {
-    @apply border-border;
+  
+  .symbol-slot::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-to-br from-white/10 to-transparent;
+    @apply opacity-0 transition-opacity duration-300;
   }
-
-  body {
-    @apply bg-background text-foreground;
+  
+  .symbol-slot:hover::before {
+    @apply opacity-100;
+  }
+  
+  .symbol-winning {
+    @apply animate-pulse shadow-win border-gold-primary/80;
+    @apply bg-gradient-to-br from-gold-primary/20 to-gold-secondary/30;
+  }
+  
+  .symbol-special {
+    @apply border-gold-primary/60 shadow-glow;
+    animation: specialGlow 2s ease-in-out infinite;
+  }
+  
+  @keyframes specialGlow {
+    0%, 100% { 
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+      transform: scale(1);
+    }
+    50% { 
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+      transform: scale(1.02);
+    }
+  }
+  
+  .control-panel {
+    @apply bg-gradient-to-r from-slate-900/95 to-slate-800/95 backdrop-blur-md;
+    @apply border border-gold-primary/30 rounded-xl shadow-strong;
+    @apply p-6;
+  }
+  
+  .premium-button {
+    @apply bg-gradient-gold text-slate-900 font-bold;
+    @apply border-2 border-gold-dark shadow-medium;
+    @apply transition-all duration-200 hover:scale-105 hover:shadow-glow;
+    @apply active:scale-95;
+  }
+  
+  .stat-card {
+    @apply bg-gradient-card border border-slate-600/50 rounded-lg p-4;
+    @apply backdrop-blur-sm shadow-soft;
+  }
+  
+  .win-display {
+    @apply text-4xl font-black bg-gradient-win bg-clip-text text-transparent;
+    @apply animate-pulse drop-shadow-lg;
+  }
+  
+  .game-title {
+    @apply text-6xl font-black bg-gradient-gold bg-clip-text text-transparent;
+    @apply drop-shadow-2xl;
+    filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
   }
 }

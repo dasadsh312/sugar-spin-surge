@@ -22,7 +22,7 @@ export default {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
-				background: 'hsl(var(--background))',
+				background: 'hsl(var(--game-background))',
 				foreground: 'hsl(var(--foreground))',
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
@@ -42,9 +42,15 @@ export default {
 				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
-					foreground: 'hsl(var(--card-foreground))'
+					foreground: 'hsl(var(--foreground))'
 				},
-				// Candy Game Colors
+				// Professional Gold Palette
+				gold: {
+					primary: 'hsl(var(--gold-primary))',
+					secondary: 'hsl(var(--gold-secondary))',
+					dark: 'hsl(var(--gold-dark))',
+				},
+				// Enhanced Candy Colors
 				candy: {
 					red: 'hsl(var(--candy-red))',
 					orange: 'hsl(var(--candy-orange))',
@@ -60,9 +66,10 @@ export default {
 					wild: 'hsl(var(--wild))',
 				},
 				win: {
-					glow: 'hsl(var(--win-glow))',
-					big: 'hsl(var(--big-win))',
-					mega: 'hsl(var(--mega-win))',
+					small: 'hsl(var(--win-small))',
+					medium: 'hsl(var(--win-medium))',
+					big: 'hsl(var(--win-big))',
+					mega: 'hsl(var(--win-mega))',
 				},
 				game: {
 					background: 'hsl(var(--game-background))',
@@ -70,15 +77,18 @@ export default {
 				}
 			},
 			backgroundImage: {
-				'gradient-candy': 'var(--gradient-candy)',
 				'gradient-gold': 'var(--gradient-gold)',
-				'gradient-game': 'var(--gradient-game)',
+				'gradient-dark': 'var(--gradient-dark)',
+				'gradient-card': 'var(--gradient-card)',
 				'gradient-button': 'var(--gradient-button)',
+				'gradient-win': 'var(--gradient-win)',
 			},
 			boxShadow: {
-				'candy': 'var(--shadow-candy)',
+				'soft': 'var(--shadow-soft)',
+				'medium': 'var(--shadow-medium)',
+				'strong': 'var(--shadow-strong)',
+				'glow': 'var(--shadow-glow)',
 				'win': 'var(--shadow-win)',
-				'button': 'var(--shadow-button)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

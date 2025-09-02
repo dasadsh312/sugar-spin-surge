@@ -58,7 +58,7 @@ export class GameEngine {
     
     // Initialize RNG with seed if provided
     if (config.seed !== undefined) {
-      rng.constructor(config.seed);
+      rng.setSeed(config.seed);
     }
 
     // Initialize evaluator
