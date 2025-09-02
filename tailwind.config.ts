@@ -32,10 +32,6 @@ export default {
 					DEFAULT: 'hsl(var(--secondary))',
 					foreground: 'hsl(var(--secondary-foreground))'
 				},
-				destructive: {
-					DEFAULT: 'hsl(var(--destructive))',
-					foreground: 'hsl(var(--destructive-foreground))'
-				},
 				muted: {
 					DEFAULT: 'hsl(var(--muted))',
 					foreground: 'hsl(var(--muted-foreground))'
@@ -44,24 +40,45 @@ export default {
 					DEFAULT: 'hsl(var(--accent))',
 					foreground: 'hsl(var(--accent-foreground))'
 				},
-				popover: {
-					DEFAULT: 'hsl(var(--popover))',
-					foreground: 'hsl(var(--popover-foreground))'
-				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
 				},
-				sidebar: {
-					DEFAULT: 'hsl(var(--sidebar-background))',
-					foreground: 'hsl(var(--sidebar-foreground))',
-					primary: 'hsl(var(--sidebar-primary))',
-					'primary-foreground': 'hsl(var(--sidebar-primary-foreground))',
-					accent: 'hsl(var(--sidebar-accent))',
-					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
-					border: 'hsl(var(--sidebar-border))',
-					ring: 'hsl(var(--sidebar-ring))'
+				// Candy Game Colors
+				candy: {
+					red: 'hsl(var(--candy-red))',
+					orange: 'hsl(var(--candy-orange))',
+					yellow: 'hsl(var(--candy-yellow))',
+					green: 'hsl(var(--candy-green))',
+					blue: 'hsl(var(--candy-blue))',
+					purple: 'hsl(var(--candy-purple))',
+					pink: 'hsl(var(--candy-pink))',
+				},
+				special: {
+					scatter: 'hsl(var(--scatter))',
+					multiplier: 'hsl(var(--multiplier))',
+					wild: 'hsl(var(--wild))',
+				},
+				win: {
+					glow: 'hsl(var(--win-glow))',
+					big: 'hsl(var(--big-win))',
+					mega: 'hsl(var(--mega-win))',
+				},
+				game: {
+					background: 'hsl(var(--game-background))',
+					overlay: 'hsl(var(--game-overlay))',
 				}
+			},
+			backgroundImage: {
+				'gradient-candy': 'var(--gradient-candy)',
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-game': 'var(--gradient-game)',
+				'gradient-button': 'var(--gradient-button)',
+			},
+			boxShadow: {
+				'candy': 'var(--shadow-candy)',
+				'win': 'var(--shadow-win)',
+				'button': 'var(--shadow-button)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -70,25 +87,56 @@ export default {
 			},
 			keyframes: {
 				'accordion-down': {
-					from: {
-						height: '0'
-					},
-					to: {
-						height: 'var(--radix-accordion-content-height)'
-					}
+					from: { height: '0' },
+					to: { height: 'var(--radix-accordion-content-height)' }
 				},
 				'accordion-up': {
-					from: {
-						height: 'var(--radix-accordion-content-height)'
-					},
-					to: {
-						height: '0'
-					}
+					from: { height: 'var(--radix-accordion-content-height)' },
+					to: { height: '0' }
+				},
+				// Game Animations
+				'candy-pop': {
+					'0%': { transform: 'scale(1)', opacity: '1' },
+					'50%': { transform: 'scale(1.2)', opacity: '0.8' },
+					'100%': { transform: 'scale(0)', opacity: '0' }
+				},
+				'symbol-drop': {
+					'0%': { transform: 'translateY(-100%)', opacity: '0' },
+					'100%': { transform: 'translateY(0)', opacity: '1' }
+				},
+				'win-pulse': {
+					'0%, 100%': { transform: 'scale(1)', filter: 'brightness(1)' },
+					'50%': { transform: 'scale(1.05)', filter: 'brightness(1.2)' }
+				},
+				'multiplier-float': {
+					'0%, 100%': { transform: 'translateY(0) rotate(0deg)' },
+					'50%': { transform: 'translateY(-10px) rotate(5deg)' }
+				},
+				'scatter-glow': {
+					'0%, 100%': { boxShadow: '0 0 20px hsl(var(--scatter) / 0.5)' },
+					'50%': { boxShadow: '0 0 40px hsl(var(--scatter) / 0.8)' }
+				},
+				'screen-shake': {
+					'0%, 100%': { transform: 'translateX(0)' },
+					'25%': { transform: 'translateX(-5px)' },
+					'75%': { transform: 'translateX(5px)' }
+				},
+				'reel-spin': {
+					'0%': { transform: 'rotateY(0deg)' },
+					'50%': { transform: 'rotateY(90deg)' },
+					'100%': { transform: 'rotateY(0deg)' }
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'candy-pop': 'candy-pop 0.6s ease-out forwards',
+				'symbol-drop': 'symbol-drop 0.4s ease-out',
+				'win-pulse': 'win-pulse 1s ease-in-out infinite',
+				'multiplier-float': 'multiplier-float 2s ease-in-out infinite',
+				'scatter-glow': 'scatter-glow 1.5s ease-in-out infinite',
+				'screen-shake': 'screen-shake 0.5s ease-in-out',
+				'reel-spin': 'reel-spin 0.8s ease-in-out',
 			}
 		}
 	},
