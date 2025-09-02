@@ -148,10 +148,48 @@ export const CandyTempest: React.FC = () => {
 
   return (
     <div className="relative w-full h-screen bg-gradient-game overflow-hidden">
-      {/* PixiJS Canvas */}
+      {/* Game Title */}
+      <div className="absolute top-4 left-1/2 transform -translate-x-1/2 pointer-events-none z-10">
+        <h1 className="text-4xl font-bold text-transparent bg-gradient-candy bg-clip-text text-center animate-win-pulse">
+          Candy Tempest
+        </h1>
+        <p className="text-center text-muted-foreground mt-1">Premium Cluster Slot</p>
+      </div>
+
+      {/* Main Game Area */}
+      <div className="flex items-center justify-center h-full pt-20 pb-32">
+        <div className="relative">
+          {/* Game Board Background */}
+          <div className="bg-card/20 backdrop-blur-sm border-2 border-primary/30 rounded-xl p-4 shadow-2xl">
+            {/* 6x5 Symbol Grid */}
+            <div className="grid grid-cols-6 gap-2 p-4 bg-game-overlay/50 rounded-lg">
+              {Array.from({ length: 30 }, (_, index) => {
+                const row = Math.floor(index / 6);
+                const col = index % 6;
+                return (
+                  <SymbolSlot
+                    key={`${row}-${col}`}
+                    symbolId={getSymbolForPosition(row, col)}
+                    isWinning={false}
+                    row={row}
+                    col={col}
+                  />
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Cascade/Win Effects Overlay */}
+          <div className="absolute inset-0 pointer-events-none">
+            {/* This is where win animations and effects would appear */}
+          </div>
+        </div>
+      </div>
+
+      {/* PixiJS Canvas (Hidden for now, will be used for advanced effects) */}
       <canvas 
         ref={canvasRef}
-        className="absolute inset-0 w-full h-full"
+        className="absolute inset-0 w-full h-full opacity-0 pointer-events-none"
         style={{ imageRendering: 'crisp-edges' }}
       />
       
@@ -172,14 +210,67 @@ export const CandyTempest: React.FC = () => {
         freeSpinsRemaining={stateData.freeSpinsRemaining}
         multiplier={stateData.multiplier}
       />
+    </div>
+  );
+};
 
-      {/* Game Title */}
-      <div className="absolute top-8 left-1/2 transform -translate-x-1/2 pointer-events-none">
-        <h1 className="text-6xl font-bold text-transparent bg-gradient-candy bg-clip-text text-center animate-win-pulse">
-          Candy Tempest
-        </h1>
-        <p className="text-center text-muted-foreground mt-2">Premium Cluster Slot Experience</p>
+// Helper function to get symbol for each position (for demo)
+const getSymbolForPosition = (row: number, col: number): string => {
+  const symbols = ['candy_red', 'candy_orange', 'candy_yellow', 'candy_green', 'candy_blue', 'candy_purple', 'candy_pink', 'scatter', 'multiplier'];
+  return symbols[(row * 6 + col) % symbols.length];
+};
+
+// Individual Symbol Slot Component
+interface SymbolSlotProps {
+  symbolId: string;
+  isWinning: boolean;
+  row: number;
+  col: number;
+}
+
+const SymbolSlot: React.FC<SymbolSlotProps> = ({ symbolId, isWinning }) => {
+  const getSymbolDisplay = (id: string) => {
+    const symbolMap: Record<string, { emoji: string; color: string; name: string }> = {
+      candy_red: { emoji: '🍎', color: 'bg-candy-red', name: 'Red Candy' },
+      candy_orange: { emoji: '🍊', color: 'bg-candy-orange', name: 'Orange Candy' },
+      candy_yellow: { emoji: '🍋', color: 'bg-candy-yellow', name: 'Yellow Candy' },
+      candy_green: { emoji: '🍏', color: 'bg-candy-green', name: 'Green Candy' },
+      candy_blue: { emoji: '🫐', color: 'bg-candy-blue', name: 'Blue Candy' },
+      candy_purple: { emoji: '🍇', color: 'bg-candy-purple', name: 'Purple Candy' },
+      candy_pink: { emoji: '🍑', color: 'bg-candy-pink', name: 'Pink Candy' },
+      scatter: { emoji: '⭐', color: 'bg-special-scatter', name: 'Golden Star' },
+      multiplier: { emoji: '💎', color: 'bg-special-multiplier', name: 'Multiplier Crystal' }
+    };
+    return symbolMap[id] || symbolMap.candy_red;
+  };
+
+  const symbol = getSymbolDisplay(symbolId);
+
+  return (
+    <div 
+      className={`
+        relative w-16 h-16 rounded-xl flex items-center justify-center
+        ${symbol.color}/20 border-2 border-current/30
+        ${isWinning ? 'animate-win-pulse shadow-win' : 'shadow-candy'}
+        hover:scale-105 transition-all duration-300 cursor-pointer
+        backdrop-blur-sm
+      `}
+      title={symbol.name}
+    >
+      {/* Symbol Icon */}
+      <div className="text-3xl transform hover:scale-110 transition-transform">
+        {symbol.emoji}
       </div>
+      
+      {/* Win Glow Effect */}
+      {isWinning && (
+        <div className="absolute inset-0 rounded-xl bg-win-glow/30 animate-pulse"></div>
+      )}
+      
+      {/* Special Symbol Border */}
+      {(symbolId === 'scatter' || symbolId === 'multiplier') && (
+        <div className="absolute inset-0 rounded-xl border-2 border-win-glow/50 animate-scatter-glow"></div>
+      )}
     </div>
   );
 };
